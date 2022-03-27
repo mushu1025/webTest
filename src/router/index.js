@@ -56,41 +56,112 @@ export const constantRoutes = [
   },
 
   {
-    path: '/Setting',
+    path: '/nested',
     component: Layout,
-    redirect: '/Setting/Receiver',
-    name: 'Setting',
-    meta: { title: 'Setting', icon: 'el-icon-setting' },
+    redirect: '/nested/menu1',
+    name: 'Nested',
+    meta: {
+      title: 'Nested',
+      icon: 'nested'
+    },
     children: [
       {
-        path: 'Receiver',
+        path: 'menu1',
+        component: () => import('@/views/nested/menu1/index'),
         name: 'Receiver',
-        component: () => import('@/views/form/receiver'),
-        meta: { title: 'Receiver', icon: 'el-icon-receiving' }
+        meta: { title: 'Receiver' }
       },
       {
-        path: 'tcSMS',
-        name: 'TCSMS',
-        component: () => import('@/views/form/tcsms'),
-        meta: { title: 'TCSMS', icon: 'el-icon-s-custom' }
+        path: 'menu2',
+        component: () => import('@/views/nested/menu2/index'), // Parent router-view
+        name: 'Menu2',
+        meta: { title: 'TCSMS' },
+        children: [
+          {
+            path: 'menu2-1',
+            component: () => import('@/views/nested/menu2/menu2-1'),
+            name: 'Menu2-1',
+            meta: { title: 'iB2B' }
+          },
+          {
+            path: 'menu2-2',
+            component: () => import('@/views/nested/menu2/menu2-2'),
+            name: 'Menu2-2',
+            meta: { title: 'C2B' }
+          }
+        ]
       },
       {
-        path: 'tcEmail',
-        name: 'TCEmail',
-        component: () => import('@/views/form/tcemail'),
-        meta: { title: 'TCEmail', icon: 'el-icon-s-custom' }
+        path: 'menu3',
+        component: () => import('@/views/nested/menu3/index'), // Parent router-view
+        name: 'Menu3',
+        meta: { title: 'TCEmail' },
+        children: [
+          {
+            path: 'menu3-1',
+            component: () => import('@/views/nested/menu3/menu3-1'),
+            name: 'Menu3-1',
+            meta: { title: 'iB2B' }
+          },
+          {
+            path: 'menu3-2',
+            component: () => import('@/views/nested/menu3/menu3-2'),
+            name: 'Menu3-2',
+            meta: { title: 'C2B' }
+          }
+        ]
       },
       {
-        path: 'onlineSMS',
-        name: 'OnlineSMS',
-        component: () => import('@/views/form/onlinesms'),
-        meta: { title: 'OnlineSMS', icon: 'el-icon-s-custom' }
+        path: 'menu4',
+        component: () => import('@/views/nested/menu4/index'), // Parent router-view
+        name: 'Menu4',
+        meta: { title: 'OnlineSMS' },
+        children: [
+          {
+            path: 'menu4-1',
+            component: () => import('@/views/nested/menu4/menu4-1'),
+            name: 'Menu4-1',
+            meta: { title: 'iB2B' }
+          },
+          {
+            path: 'menu4-2',
+            component: () => import('@/views/nested/menu4/menu4-2'),
+            name: 'Menu4-2',
+            meta: { title: 'eB2B' }
+          },
+          {
+            path: 'menu4-3',
+            component: () => import('@/views/nested/menu4/menu4-3'),
+            name: 'Menu4-3',
+            meta: { title: 'C2B' }
+          }
+        ]
       },
       {
-        path: 'onlineEmail',
-        name: 'OnlineEmail',
-        component: () => import('@/views/form/onlineemail'),
-        meta: { title: 'OnlineEmail', icon: 'el-icon-s-custom' }
+        path: 'menu5',
+        component: () => import('@/views/nested/menu5/index'), // Parent router-view
+        name: 'Menu5',
+        meta: { title: 'OnlineEmail' },
+        children: [
+          {
+            path: 'menu5-1',
+            component: () => import('@/views/nested/menu5/menu5-1'),
+            name: 'Menu5-1',
+            meta: { title: 'iB2B' }
+          },
+          {
+            path: 'menu5-2',
+            component: () => import('@/views/nested/menu5/menu5-2'),
+            name: 'Menu5-2',
+            meta: { title: 'eB2B' }
+          },
+          {
+            path: 'menu5-3',
+            component: () => import('@/views/nested/menu5/menu5-3'),
+            name: 'Menu5-3',
+            meta: { title: 'C2B' }
+          }
+        ]
       }
     ]
   },
